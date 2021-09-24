@@ -24,6 +24,9 @@ public class Teachers {
 		this.name = name;
 		this.password = password;
 	}
+	public Teachers() {
+		
+	}
 	
 	public int getId() {
 		return id;

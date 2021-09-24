@@ -16,6 +16,9 @@ public class Subjects {
 	private String subjectname;
 
 	
+	public Subjects() {
+	}
+
 	public Subjects(int id, String subjectname) {
 		super();
 		this.id = id;

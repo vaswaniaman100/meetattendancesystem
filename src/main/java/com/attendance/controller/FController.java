@@ -66,35 +66,7 @@ public class FController {
 		return mv;
 
 	}
-	@RequestMapping("/adminhome")
-	public ModelAndView adminhome(HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();
-		String username = null ,password = null;
-		session = request.getSession();
-		try {
-		username =session.getAttribute("username").toString();
-		password = session.getAttribute("password").toString();
-		}
-		catch(Exception e) {
-			
-		}
-		
-		if (username == null && password == null) {
-			return new ModelAndView("redirect:/");
-		}
-		else if (!username.equals(u) && !password.equals(p)) {
-			
-			return new ModelAndView("redirect:/");
-
-		}
-		else {
-		
-		mv.setViewName("view/home.jsp");
-		}
 	
-		return mv;
-		
-	}
 }
 
 //rest api template without Rest controller

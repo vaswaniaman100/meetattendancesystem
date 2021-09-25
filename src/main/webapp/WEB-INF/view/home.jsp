@@ -75,6 +75,10 @@
             </thead>
             <tbody>
             <%
+            if(listsubject.isEmpty()){
+            	
+            }
+            else{
           		for(Subjects subject:listsubject){          			
             %>
                 <tr>
@@ -85,6 +89,7 @@
                 </tr>               
            <%
           		 } 
+            }
            %>
             </tbody>
         </table>
@@ -122,7 +127,7 @@
             %>
                 <tr>
                     <td></td>
-                    <td><%=classname.getId() %></td>
+                    <td><%=classname.getId()%></td>
                     <td><%=classname.getName() %></td>
 
                 </tr>               

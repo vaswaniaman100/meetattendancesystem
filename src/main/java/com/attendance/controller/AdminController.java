@@ -1,11 +1,13 @@
 package com.attendance.controller;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,11 +90,20 @@ public class AdminController {
 
 		} else {
 			if(request.getMethod().equals("POST")) {
-				adminservice.addTeacher(tname, tpass);
-				mv.addObject("alertdata", "successregister");
+				try {						
+					adminservice.addTeacher(tname, tpass);
+					mv.addObject("alertdata", "successregister");
+								
+				}catch(DataIntegrityViolationException de) {
+					mv.addObject("alertdata", "duplicate");
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+				}							
 			}
 			
-	
+			List<Teachers> listteachers = adminservice.getTeachersList();
+			mv.addObject("listteachers", listteachers);
 			mv.setViewName("view/addteacher.jsp");
 		
 		}
@@ -124,11 +135,18 @@ public class AdminController {
 
 			} else {
 				if(request.getMethod().equals("POST")) {
-					adminservice.addSubject(sname);
-					mv.addObject("alertdata", "successregister");
+					try {						
+						adminservice.addSubject(sname);
+						mv.addObject("alertdata", "successregister");
+					}catch(DataIntegrityViolationException de) {
+						mv.addObject("alertdata", "duplicate");
+					}
+					catch(Exception e) {
+						e.printStackTrace();
+					}	
 				}
-				
-		
+				List<Subjects> listsubject = adminservice.getSubjectsList();
+				mv.addObject("listsubject", listsubject);
 				mv.setViewName("view/addsubject.jsp");
 			
 			}
@@ -159,10 +177,21 @@ public class AdminController {
 				
 			} else {
 				if(request.getMethod().equals("POST")) {
-					adminservice.addClassname(cname);
-					mv.addObject("alertdata", "successregister");
+					try {						
+						adminservice.addClassname(cname);
+						mv.addObject("alertdata", "successregister");
+					}catch(DataIntegrityViolationException de) {
+						mv.addObject("alertdata", "duplicate");
+					}
+					catch(Exception e) {
+						e.printStackTrace();
+					}
+					
 				}
 				
+				List<Classname> listclass = adminservice.getClassList();
+;
+				mv.addObject("listclass", listclass);
 				
 				mv.setViewName("view/addclassname.jsp");
 				

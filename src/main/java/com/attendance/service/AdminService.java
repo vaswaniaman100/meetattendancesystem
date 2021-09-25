@@ -26,6 +26,9 @@ public class AdminService {
 	@Autowired
 	ClassnameResource classresource;
 	
+	Teachers teacher;
+	
+	
 	public List<Teachers> getTeachersList(){
 		
 		return teacherresource.findAll(Sort.by(Sort.Direction.DESC,"id"));
@@ -38,6 +41,26 @@ public class AdminService {
 	public List<Classname> getClassList(){
 		
 		return classresource.findAll(Sort.by(Sort.Direction.DESC,"id"));
+	}
+	
+	public void addTeacher(String name,String password) {
+		teacher = new Teachers();
+		teacher.setName(name);
+		teacher.setPassword(password);
+		teacherresource.save(teacher);
+		
+	}
+	public void addSubject(String name) {
+		Subjects subject = new Subjects();
+		subject.setSubjectname(name);
+		subjectresource.save(subject);
+		
+	}
+	public void addClassname(String name) {
+		Classname classname = new Classname();
+		classname.setName(name);
+		classresource.save(classname);
+		
 	}
 	
 	

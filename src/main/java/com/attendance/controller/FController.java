@@ -1,3 +1,5 @@
+
+
 package com.attendance.controller;
 
 import java.util.ArrayList;
@@ -17,12 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ViewResolver;
 
+import com.attendance.credentials.AdminCredentials;
+
 @Controller
 public class FController {
 	HttpSession session;
-	private String u= "mcaadmin";
-	private String p ="1234";
-	
+	AdminCredentials admincred = new AdminCredentials();
+	private String u = admincred.getUsername();
+	private String p = admincred.getPassword();
 	
 	@RequestMapping("/")
 	public ModelAndView index() {

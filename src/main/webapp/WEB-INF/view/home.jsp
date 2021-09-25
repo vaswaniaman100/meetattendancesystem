@@ -25,7 +25,8 @@
         <table id="teacher" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Sr no.</th>
+                    <th>Id</th>
                     <th>name</th>
                     <th>password</th>
                 </tr>
@@ -36,6 +37,7 @@
             %>
                 <tr>
                     <td></td>
+                    <td><%=teacher.getId() %></td>
                     <td><%=teacher.getName() %></td>
                     <td><%=teacher.getPassword() %></td>
 
@@ -66,7 +68,8 @@
         <table id="subject" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>id</th>
+                    <th>Sr no.</th>
+                    <th>Id</th>
                     <th>name</th>
                 </tr>
             </thead>
@@ -76,6 +79,7 @@
             %>
                 <tr>
                     <td></td>
+                    <td><%=subject.getId() %></td>
                     <td><%=subject.getSubjectname() %></td>
 
                 </tr>               
@@ -107,6 +111,7 @@
         <table id="classname" class="display" style="width:100%">
             <thead>
                 <tr>
+					<th>Sr no.</th>
                     <th>Id</th>
                     <th>name</th>
                 </tr>
@@ -117,6 +122,7 @@
             %>
                 <tr>
                     <td></td>
+                    <td><%=classname.getId() %></td>
                     <td><%=classname.getName() %></td>
 
                 </tr>               

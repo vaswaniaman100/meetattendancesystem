@@ -16,6 +16,15 @@
     </head>
 
     <body>
+    <br><br>
+    <a href ="/addteacher">Add teacher</a><br>
+    <a href ="/addsubject">Add subject</a><br>
+    <a href ="/addclass">Add Class Name</a><br>
+    <a href ="/deleteteacher">Delete teacher</a><br>
+    <a href ="/deletesubject">delete subject teacher</a><br>
+    <a href ="/deleteclassname">delete class</a><br>
+    
+    <br><br>
     <!-- Teachers list start -->
     <%
     	List<Teachers> listteachers = (List<Teachers>) request.getAttribute("listteachers");

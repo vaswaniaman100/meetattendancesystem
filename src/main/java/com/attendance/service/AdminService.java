@@ -26,7 +26,7 @@ public class AdminService {
 	@Autowired
 	ClassnameResource classresource;
 	
-	Teachers teacher;
+	
 	
 	
 	public List<Teachers> getTeachersList(){
@@ -44,7 +44,7 @@ public class AdminService {
 	}
 	
 	public void addTeacher(String name,String password) {
-		teacher = new Teachers();
+		Teachers teacher = new Teachers();
 		teacher.setName(name);
 		teacher.setPassword(password);
 		teacherresource.save(teacher);
@@ -62,6 +62,42 @@ public class AdminService {
 		classresource.save(classname);
 		
 	}
+	public int deleteTeacher(int id) {
+		boolean data =teacherresource.existsById(id);
+		if(data) {
+			teacherresource.deleteById(id);
+			return 0;
+		}
+		else {
+			return 1;
+		}
+		
+	}
+	
+	public int deleteSubject(int id) {
+		boolean data =subjectresource.existsById(id);
+		if(data) {
+			subjectresource.deleteById(id);
+			return 0;
+		}
+		else {
+			return 1;
+		}
+		
+	}
+	
+	public int deleteClass(int id) {
+		boolean data =classresource.existsById(id);
+		if(data) {
+			classresource.deleteById(id);
+			return 0;
+		}
+		else {
+			return 1;
+		}
+		
+	}
+	
 	
 	
 }

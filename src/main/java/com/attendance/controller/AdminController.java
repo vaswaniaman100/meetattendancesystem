@@ -190,7 +190,7 @@ public class AdminController {
 				}
 				
 				List<Classname> listclass = adminservice.getClassList();
-;
+
 				mv.addObject("listclass", listclass);
 				
 				mv.setViewName("view/addclassname.jsp");
@@ -201,8 +201,147 @@ public class AdminController {
 			
 		}
 	
+		// delete teacher get and post view
+		@RequestMapping(path = "/deleteteacher")
+		public ModelAndView deleteTeacherView(HttpServletRequest request, @RequestParam( required = false,name = "tid") String id )  {
+			
+			ModelAndView mv = new ModelAndView();
+			String username = null, password = null;
+			session = request.getSession();
+			try {
+				username = session.getAttribute("username").toString();
+				password = session.getAttribute("password").toString();
+			} catch (Exception e) {
+			}
+
+			if (username == null && password == null) {
+				return new ModelAndView("redirect:/");
+			} else if (!username.equals(u) && !password.equals(p)) {
+
+				return new ModelAndView("redirect:/");
+
+			} else {
+				if(request.getMethod().equals("POST")) {
+					try {	
+						
+						int a = adminservice.deleteTeacher(Integer.parseInt(id));
+						if(a==0) {					
+							mv.addObject("alertdata", "successdelete");
+						}
+						else {
+							mv.addObject("alertdata", "notexist");
+						}
+									
+					}
+					catch(Exception e) {
+						e.printStackTrace();
+					}							
+				}
+				
+				List<Teachers> listteachers = adminservice.getTeachersList();
+				mv.addObject("listteachers", listteachers);
+				mv.setViewName("view/deleteteacher.jsp");
+			
+			}
+
+			return mv;
+		
+		}
+		
+		
+		
+		@RequestMapping(path = "/deletesubject")
+		public ModelAndView deleteSubjectView(HttpServletRequest request, @RequestParam( required = false,name = "sid") String id )  {
+			
+			ModelAndView mv = new ModelAndView();
+			String username = null, password = null;
+			session = request.getSession();
+			try {
+				username = session.getAttribute("username").toString();
+				password = session.getAttribute("password").toString();
+			} catch (Exception e) {
+			}
+			
+			if (username == null && password == null) {
+				return new ModelAndView("redirect:/");
+			} else if (!username.equals(u) && !password.equals(p)) {
+				
+				return new ModelAndView("redirect:/");
+				
+			} else {
+				if(request.getMethod().equals("POST")) {
+					try {	
+						
+						int a = adminservice.deleteSubject(Integer.parseInt(id));
+						if(a==0) {					
+							mv.addObject("alertdata", "successdelete");
+						}
+						else {
+							mv.addObject("alertdata", "notexist");
+						}
+						
+					}
+					catch(Exception e) {
+						e.printStackTrace();
+					}							
+				}
+				List<Subjects> listsubject = adminservice.getSubjectsList();
+				mv.addObject("listsubject", listsubject);
+				mv.setViewName("view/deletesubject.jsp");
+				
+			}
+			
+			return mv;
+			
+		}
 	
 	
+		@RequestMapping(path = "/deleteclassname")
+		public ModelAndView deleteClassnameView(HttpServletRequest request, @RequestParam( required = false,name = "cid") String id )  {
+			
+			ModelAndView mv = new ModelAndView();
+			String username = null, password = null;
+			session = request.getSession();
+			try {
+				username = session.getAttribute("username").toString();
+				password = session.getAttribute("password").toString();
+			} catch (Exception e) {
+			}
+			
+			if (username == null && password == null) {
+				return new ModelAndView("redirect:/");
+			} else if (!username.equals(u) && !password.equals(p)) {
+				
+				return new ModelAndView("redirect:/");
+				
+			} else {
+				if(request.getMethod().equals("POST")) {
+					try {	
+						
+						int a = adminservice.deleteClass(Integer.parseInt(id));
+						if(a==0) {					
+							mv.addObject("alertdata", "successdelete");
+						}
+						else {
+							mv.addObject("alertdata", "notexist");
+						}
+						
+					}
+					catch(Exception e) {
+						e.printStackTrace();
+					}							
+				}
+				List<Classname> listclass = adminservice.getClassList();
+
+				mv.addObject("listclass", listclass);
+				mv.setViewName("view/deleteclassname.jsp");
+				
+			}
+			
+			return mv;
+			
+		}
+		
 	
 	
 	

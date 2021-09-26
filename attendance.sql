@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2021 at 05:12 PM
+-- Generation Time: Sep 26, 2021 at 09:47 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -30,8 +30,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `classname` (
   `id` int(11) NOT NULL,
-  `name` int(11) DEFAULT NULL
+  `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `classname`
+--
+
+INSERT INTO `classname` (`id`, `name`) VALUES
+(3, 'tymca');
 
 -- --------------------------------------------------------
 
@@ -67,8 +74,15 @@ CREATE TABLE `lectures` (
 
 CREATE TABLE `subjects` (
   `id` int(11) NOT NULL,
-  `subjectname` varchar(255) DEFAULT NULL
+  `subjectname` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `subjectname`) VALUES
+(10, '');
 
 -- --------------------------------------------------------
 
@@ -78,9 +92,17 @@ CREATE TABLE `subjects` (
 
 CREATE TABLE `teachers` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teachers`
+--
+
+INSERT INTO `teachers` (`id`, `name`, `password`) VALUES
+(20, 'aman', '1234'),
+(21, 'lucky', 'asa');
 
 --
 -- Indexes for dumped tables
@@ -90,7 +112,8 @@ CREATE TABLE `teachers` (
 -- Indexes for table `classname`
 --
 ALTER TABLE `classname`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `lectureattendance`
@@ -108,13 +131,15 @@ ALTER TABLE `lectures`
 -- Indexes for table `subjects`
 --
 ALTER TABLE `subjects`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `subjectname` (`subjectname`);
 
 --
 -- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -124,7 +149,7 @@ ALTER TABLE `teachers`
 -- AUTO_INCREMENT for table `classname`
 --
 ALTER TABLE `classname`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lectureattendance`
@@ -142,13 +167,13 @@ ALTER TABLE `lectures`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

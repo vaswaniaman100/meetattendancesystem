@@ -2,6 +2,8 @@ package com.attendance.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,12 +11,32 @@ import javax.persistence.Table;
 @Table(name = "lectureattendance")
 public class LectureAttendance {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	int id;
+
 	@Column(name = "lectureid")
 	int lectureid;
 	
+	public LectureAttendance() {
+		// TODO Auto-generated constructor stub
+	}
+	public LectureAttendance(int lectureid, String studentname) {
+		
+		this.lectureid = lectureid;
+		this.studentname = studentname;
+	}
+
 	@Column(name = "studentname")
 	String studentname;
 
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 	public int getLectureid() {
 		return lectureid;
 	}

@@ -1,5 +1,7 @@
 package com.attendance.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,7 +22,7 @@ public class Lectures {
 	String teachername;
 		
 	@Column(name = "dateoflec")
-	String dateoflec;	
+	Timestamp dateoflec;	
 	
 	@Column(name = "classname")
 	String classname;
@@ -28,10 +30,11 @@ public class Lectures {
 	@Column(name = "Subject")
 	String Subject;
 	
-	public Lectures(int lectureid, String lecturecomments, String teachername, String dateoflec, String classname,
+	Lectures(){}
+	
+	public Lectures( String lecturecomments, String teachername, Timestamp dateoflec, String classname,
 			String subject) {
-		super();
-		this.lectureid = lectureid;
+	
 		this.lecturecomments = lecturecomments;
 		this.teachername = teachername;
 		this.dateoflec = dateoflec;
@@ -63,11 +66,11 @@ public class Lectures {
 		this.teachername = teachername;
 	}
 
-	public String getDateoflec() {
+	public Timestamp getDateoflec() {
 		return dateoflec;
 	}
 
-	public void setDateoflec(String dateoflec) {
+	public void setDateoflec(Timestamp dateoflec) {
 		this.dateoflec = dateoflec;
 	}
 

@@ -2,15 +2,21 @@ package com.attendance.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.attendance.model.Classname;
+import com.attendance.model.LectureAttendance;
+import com.attendance.model.Lectures;
 import com.attendance.model.Subjects;
 import com.attendance.model.Teachers;
 import com.attendance.resource.ClassnameResource;
+import com.attendance.resource.LectureAttendanceResource;
+import com.attendance.resource.LecturesRepository;
 import com.attendance.resource.SubjectsResource;
 import com.attendance.resource.TeachersResource;
 
@@ -26,7 +32,11 @@ public class AdminService {
 	@Autowired
 	ClassnameResource classresource;
 	
+	@Autowired
+	LecturesRepository lrepo;
 	
+	@Autowired
+	LectureAttendanceResource larepo;
 	
 	
 	public List<Teachers> getTeachersList(){
@@ -96,6 +106,15 @@ public class AdminService {
 			return 1;
 		}
 		
+	}
+	public  void saveLecture(Lectures l) {
+		lrepo.save(l);
+	}
+	@Transactional
+	public  void saveLectureAttendance(int lecid, List<String> arr) {
+		for(String a:arr) {
+			larepo.saveAndFlush(new LectureAttendance(lecid,a));
+		}
 	}
 	
 	

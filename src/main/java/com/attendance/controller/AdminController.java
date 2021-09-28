@@ -1,6 +1,11 @@
 package com.attendance.controller;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,21 +15,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.attendance.credentials.AdminCredentials;
 import com.attendance.model.Classname;
+import com.attendance.model.LectureAttendance;
+import com.attendance.model.Lectures;
 import com.attendance.model.Subjects;
 import com.attendance.model.Teachers;
+import com.attendance.resource.LecturesRepository;
+import com.attendance.resource.TeachersResource;
 import com.attendance.service.AdminService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javassist.bytecode.stackmap.TypeData.ClassName;
 
 @Controller
 public class AdminController {
+	
+	@Autowired
+	LecturesRepository lrepo;
+	
+	@Autowired
+	TeachersResource tr;
+	int globalvar =26;
+	
 	HttpSession session;
 	AdminCredentials admincred = new AdminCredentials();
 	private String u = admincred.getUsername();
@@ -32,6 +52,8 @@ public class AdminController {
 
 	@Autowired
 	AdminService adminservice;
+	
+	ArrayList<String> arr1;
 
 	@RequestMapping("/adminhome")
 	public ModelAndView adminhome(HttpServletRequest request) {
@@ -342,8 +364,122 @@ public class AdminController {
 			
 		}
 		
-	
-	
+		@RequestMapping("/saveattendance")
+		public ModelAndView saveAttendance(HttpServletRequest request, @RequestParam(name = "name",required = false)ArrayList<String> arr) {
+			
+			
+			arr1=arr;
+//			System.out.println(arr);
+//			ObjectMapper mapper = new ObjectMapper();
+//			arr=new ArrayList<String>();
+//			arr.add("sdf");
+			
+//			String json = "";
+//			try {
+//				json = mapper.writeValueAsString(arr);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+			
+			if(arr1==null) {
+				return new ModelAndView("redirect:/");
+			}
+			ModelAndView mv = new ModelAndView();
+//			mv.addObject("listarr", json);
+			mv.setViewName("view/saveattendance.jsp");
+			return mv;
+		}
+		
+		@RequestMapping("/saveattendance1")
+		public ModelAndView saveAttendance1(HttpServletRequest request, @RequestParam(name = "name",required = false)ArrayList<String> arr) {
+			
+			String comments,tname,password,classname,subject;
+		
+//			System.out.println(arr);
+//			ObjectMapper mapper = new ObjectMapper();
+//			arr=new ArrayList<String>();
+//			arr.add("sdf");
+			
+//			String json = "";
+//			try {
+//				json = mapper.writeValueAsString(arr);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+			if(request.getMethod().equals("POST")) {
+				//id
+				comments = request.getParameter("comment");
+				tname = request.getParameter("teachername");
+				password = request.getParameter("password");//extra
+				classname = request.getParameter("classname");
+				subject = request.getParameter("subject");
+				//date and time
+				
+				
+				Date date = new Date();
+				Timestamp ts = new Timestamp(date.getTime());
+				Lectures l = new Lectures( comments, tname, ts, classname, subject);
+				adminservice.saveLecture(l);
+				Lectures la =lrepo.getLastLecture();
+				LectureAttendance lecatt =new LectureAttendance();
+				adminservice.saveLectureAttendance(la.getLectureid(), arr1);
+				
+				
+				return new ModelAndView("redirect:/success");
+			}
+			arr1=null;
+			if(arr1==null) {
+				return new ModelAndView("redirect:/");
+			}
+			ModelAndView mv = new ModelAndView();
+//			mv.addObject("listarr", json);
+			mv.setViewName("view/saveattendance.jsp");
+			return mv;
+		}
+		
+		@RequestMapping("/success")
+		public ModelAndView success() {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("view/success.jsp");
+			return mv;
+			
+		}
+		
+		
+		
+//		
+//		@RequestMapping("/testselectdropdowntemplate")
+//	
+//		public String as() {
+//			this.globalvar =43;
+//			if(tr.findByNameAndPassword("lucky", "1234") == null) {
+//				System.out.println("nahi hai");
+//			}
+//			else {
+//				System.out.println("hai na");
+//			}
+//			
+//			return "/view/selectdropdowntemplate.jsp";
+//		}
+//		
+//		@RequestMapping("/test1")
+//		@ResponseBody
+//		public String asds() {
+//			System.out.println(globalvar);
+//			return "invalid";
+//			
+//		}
+//		
+//		
+//		@RequestMapping(path = "/lsave")
+//		public void lsave(HttpServletRequest request) throws ParseException {
+//			Date date = new Date();
+//			  Timestamp ts = new Timestamp(date.getTime());
+//			
+//			Lectures l = new Lectures(22, "sdsds", "aman", ts, "sdsds", "sdsd");
+//			lrepo.save(l);
+//		}
+//	
 	
 	
 	@RequestMapping(path = "/logout")

@@ -13,5 +13,6 @@ public interface LecturesRepository extends JpaRepository<Lectures, Integer>  {
 	
 	@Query(value = "select * from lectures order by lectureid DESC LIMIT 1" ,nativeQuery = true)
 	public Lectures getLastLecture();
+	
 		
 }

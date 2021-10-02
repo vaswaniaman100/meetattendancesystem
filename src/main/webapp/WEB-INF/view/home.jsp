@@ -71,6 +71,7 @@
 			for (Teachers teacher : listteachers) {
 			%>
 			<tr>
+			
 				<td></td>
 				<td><%=teacher.getId()%></td>
 				<td><%=teacher.getName()%></td>

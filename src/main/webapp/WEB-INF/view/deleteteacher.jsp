@@ -25,6 +25,7 @@
     </script>
 
     <body>
+      
         <form action="/deleteteacher" method="post">
             <label for="tid">Enter Teacher id</label>
             <input type="text" name="tid" id="tid"> <br><br>

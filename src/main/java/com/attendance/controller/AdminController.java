@@ -369,23 +369,21 @@ public class AdminController {
 			
 			
 			arr1=arr;
-//			System.out.println(arr);
-//			ObjectMapper mapper = new ObjectMapper();
-//			arr=new ArrayList<String>();
-//			arr.add("sdf");
-			
-//			String json = "";
-//			try {
-//				json = mapper.writeValueAsString(arr);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
 			
 			if(arr1==null) {
 				return new ModelAndView("redirect:/");
 			}
+			
 			ModelAndView mv = new ModelAndView();
-//			mv.addObject("listarr", json);
+			List<Teachers> listteachers = adminservice.getTeachersList();
+			List<Subjects> listsubject = adminservice.getSubjectsList();
+			List<Classname> listclass = adminservice.getClassList();
+
+			
+			mv.addObject("listteachers", listteachers);
+			mv.addObject("listsubject", listsubject);
+			mv.addObject("listclass", listclass);
+		
 			mv.setViewName("view/saveattendance.jsp");
 			return mv;
 		}
@@ -395,17 +393,7 @@ public class AdminController {
 			
 			String comments,tname,password,classname,subject;
 		
-//			System.out.println(arr);
-//			ObjectMapper mapper = new ObjectMapper();
-//			arr=new ArrayList<String>();
-//			arr.add("sdf");
-			
-//			String json = "";
-//			try {
-//				json = mapper.writeValueAsString(arr);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
+
 			if(request.getMethod().equals("POST")) {
 				//id
 				comments = request.getParameter("comment");
@@ -444,44 +432,7 @@ public class AdminController {
 			return mv;
 			
 		}
-		
-		
-		
-//		
-//		@RequestMapping("/testselectdropdowntemplate")
-//	
-//		public String as() {
-//			this.globalvar =43;
-//			if(tr.findByNameAndPassword("lucky", "1234") == null) {
-//				System.out.println("nahi hai");
-//			}
-//			else {
-//				System.out.println("hai na");
-//			}
-//			
-//			return "/view/selectdropdowntemplate.jsp";
-//		}
-//		
-//		@RequestMapping("/test1")
-//		@ResponseBody
-//		public String asds() {
-//			System.out.println(globalvar);
-//			return "invalid";
-//			
-//		}
-//		
-//		
-//		@RequestMapping(path = "/lsave")
-//		public void lsave(HttpServletRequest request) throws ParseException {
-//			Date date = new Date();
-//			  Timestamp ts = new Timestamp(date.getTime());
-//			
-//			Lectures l = new Lectures(22, "sdsds", "aman", ts, "sdsds", "sdsd");
-//			lrepo.save(l);
-//		}
-//	
-	
-	
+					
 	@RequestMapping(path = "/logout")
 	public ModelAndView logout(HttpServletRequest request) {
 		request.getSession().removeAttribute("username");

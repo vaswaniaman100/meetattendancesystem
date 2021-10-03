@@ -20,7 +20,7 @@ public class Lectures {
 		
 	@Column(name = "teachername")
 	String teachername;
-		
+			
 	@Column(name = "dateoflec")
 	Timestamp dateoflec;	
 	
@@ -90,7 +90,11 @@ public class Lectures {
 		Subject = subject;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Lectures [lectureid=" + lectureid + ", lecturecomments=" + lecturecomments + ", teachername="
+				+ teachername + ", dateoflec=" + dateoflec + ", classname=" + classname + ", Subject=" + Subject + "]";
+	}
 	
 
 }

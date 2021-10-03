@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +21,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ViewResolver;
 
 import com.attendance.credentials.AdminCredentials;
+import com.attendance.model.Teachers;
+import com.attendance.resource.TeachersResource;
+import com.attendance.service.TeacherService;
 
 @Controller
 public class FController {
+	
+	@Autowired
+	TeacherService teacherService;
 	HttpSession session;
 	AdminCredentials admincred = new AdminCredentials();
 	private String u = admincred.getUsername();
@@ -53,7 +60,7 @@ public class FController {
 			System.out.println(username);
 		}
 		
-		
+		Teachers teacher = teacherService.validateTeacher(username, password);
 		if (username == null && password == null) {
 			mv.addObject("faillogin", "invalidlogin");
 			mv.setViewName("index.jsp");
@@ -62,7 +69,13 @@ public class FController {
 			session.setAttribute("password", password);
 			return new ModelAndView("redirect:/adminhome");
 
-		} else {
+		}else if(teacher != null && username.equals(teacher.getName()) && password.equals(teacher.getPassword())) {
+			session.setAttribute("username", username);
+			session.setAttribute("password", password);
+			return new ModelAndView("redirect:/teacherhome");
+		} 
+		
+		else {
 			mv.addObject("faillogin", "faillogin");
 			mv.setViewName("index.jsp");
 		}

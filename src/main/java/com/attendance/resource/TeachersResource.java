@@ -12,4 +12,5 @@ import com.attendance.model.Teachers;
 @Resource
 public interface TeachersResource extends JpaRepository<Teachers, Integer>  {
 	Teachers findByNameAndPassword(String name, String password);
+
 }

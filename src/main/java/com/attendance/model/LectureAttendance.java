@@ -52,5 +52,10 @@ public class LectureAttendance {
 	public void setStudentname(String studentname) {
 		this.studentname = studentname;
 	}
+	@Override
+	public String toString() {
+		return "LectureAttendance [id=" + id + ", lectureid=" + lectureid + ", studentname=" + studentname + "]";
+	}
+	
 
 }

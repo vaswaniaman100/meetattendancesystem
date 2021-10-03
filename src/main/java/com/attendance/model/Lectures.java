@@ -27,8 +27,8 @@ public class Lectures {
 	@Column(name = "classname")
 	String classname;
 	
-	@Column(name = "Subject")
-	String Subject;
+	@Column(name = "subject")
+	String subject;
 	
 	Lectures(){}
 	
@@ -39,7 +39,7 @@ public class Lectures {
 		this.teachername = teachername;
 		this.dateoflec = dateoflec;
 		this.classname = classname;
-		Subject = subject;
+		subject = subject;
 	}
 
 	public int getLectureid() {
@@ -83,17 +83,17 @@ public class Lectures {
 	}
 
 	public String getSubject() {
-		return Subject;
+		return subject;
 	}
 
 	public void setSubject(String subject) {
-		Subject = subject;
+		subject = subject;
 	}
 
 	@Override
 	public String toString() {
 		return "Lectures [lectureid=" + lectureid + ", lecturecomments=" + lecturecomments + ", teachername="
-				+ teachername + ", dateoflec=" + dateoflec + ", classname=" + classname + ", Subject=" + Subject + "]";
+				+ teachername + ", dateoflec=" + dateoflec + ", classname=" + classname + ", subject=" + subject + "]";
 	}
 	
 

@@ -394,7 +394,7 @@ public class AdminController {
 		
 		@RequestMapping("/saveattendance1")
 		public ModelAndView saveAttendance1(HttpServletRequest request, @RequestParam(name = "name",required = false)ArrayList<String> arr) {
-			
+			ModelAndView mv = new ModelAndView();
 			String comments,tname,password,classname,subject;
 
 
@@ -423,13 +423,18 @@ public class AdminController {
 					return new ModelAndView("redirect:/success");
 
 				}
+				else {
+					mv.addObject("faillogin", "itd");
+					mv.setViewName("index.jsp");
+					return mv;
+				}
 				
 			}
 			arr1=null;
 			if(arr1==null) {
 				return new ModelAndView("redirect:/");
 			}
-			ModelAndView mv = new ModelAndView();
+			
 //			mv.addObject("listarr", json);
 			mv.setViewName("view/saveattendance.jsp");
 			return mv;

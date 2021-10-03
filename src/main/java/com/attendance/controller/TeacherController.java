@@ -1,6 +1,9 @@
 package com.attendance.controller;
 
+import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,6 +20,7 @@ import com.attendance.model.LectureAttendance;
 import com.attendance.model.Lectures;
 import com.attendance.model.Subjects;
 import com.attendance.model.Teachers;
+import com.attendance.resource.LectureAttendanceResource;
 import com.attendance.service.TeacherService;
 
 @Controller
@@ -27,8 +31,19 @@ public class TeacherController {
 
 	HttpSession session;
 	
+	@Autowired
+	LectureAttendanceResource attendanceResource;
+	
 	@RequestMapping(value = "/teacherhome")
 	public ModelAndView teacherHome(HttpServletRequest request) {
+		
+		
+		List<Integer> tempid = Arrays.asList(new Integer[]{46,49});
+	//	System.out.println( attendanceResource.findByLecturesbyids(tempid));
+		
+		
+		
+		
 		ModelAndView mv = new ModelAndView();
 		String username = null, password = null;
 
@@ -92,6 +107,60 @@ public class TeacherController {
 		
 		return mv;
 	}
+	
+	@RequestMapping(value = "/report")
+	public ModelAndView report( HttpServletRequest request) {
+		
+		ModelAndView mv = new ModelAndView();
+		String username = null, password = null;
+		
+		session = request.getSession();
+		try {
+			username = session.getAttribute("username").toString();
+			password = session.getAttribute("password").toString();
+		} catch (Exception e) {
+		}
+		Teachers teacher = teacherService.validateTeacher(username, password);
+		
+		if (username == null && password == null) {
+			return new ModelAndView("redirect:/");
+		} else if (teacher != null && username.equals(teacher.getName()) && password.equals(teacher.getPassword())) {
+			if(request.getMethod().equals("POST")) {
+				String teachername = username;
+				String subject = request.getParameter("subject");
+				String classname = request.getParameter("classname");
+				System.out.println(teachername+" "+subject+" "+classname);
+				//get lecture by teachername subject classname
+				List<Lectures> listlectures = teacherService.findlecturesbytcs(teachername, classname, subject);
+				System.out.println(listlectures);
+				//remove and store lecture id from listlectures  //complete
+				List<Integer> listoflecid= listlectures.stream().map(m->m.getLectureid()).collect(Collectors.toList());
+				// get attendance of relevant ids          //complete
+				List<LectureAttendance> attendance= teacherService.getLectureAteendancebyList(listoflecid);
+				
+				List<Timestamp> datelist = listlectures.stream().map(m->m.getDateoflec()).collect(Collectors.toList());
+				
+				// getting students name            //complete
+				List<String> studentsname = attendanceResource.findAll().stream().map(LectureAttendance::getStudentname).distinct().collect(Collectors.toList());
+				
+				mv.addObject("listoflecid",listoflecid);
+				mv.addObject("attendance",attendance);
+				mv.addObject("studentsname",studentsname);
+				mv.addObject("datelist",datelist);
+				mv.setViewName("view/reporttable.jsp");
+				return mv;
+			}
+			mv.setViewName("view/report.jsp");
+				
+		} else {
+			
+			return new ModelAndView("redirect:/");
+		}
+		
+		return mv;
+	}
+	
+	
 	
 	
 	

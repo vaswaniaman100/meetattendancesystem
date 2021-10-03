@@ -42,6 +42,13 @@ public class TeacherService {
 		return lecturesRepository.findByLectureid(id);
 	}
 	
+	public List<Lectures> findlecturesbytcs(String name,String classname,String subject){
+		return lecturesRepository.findByTeachernameAndClassnameAndSubject(name, classname, subject);
+		
+	}
+	public List<LectureAttendance> getLectureAteendancebyList(List<Integer> id){
+		return attendanceResource.findByLecturesbyids(id);
+	}
 	
 	
 	

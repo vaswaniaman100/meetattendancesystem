@@ -14,6 +14,10 @@
         	else if (alertsystem == "invalidlogin"){
         		alert("Invalid access");
             }
+        	else if (alertsystem == "itd"){
+        		alert("Invalid teacher username or password");
+            }
+        	
             </script>
         </head>
 

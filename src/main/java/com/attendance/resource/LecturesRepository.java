@@ -19,5 +19,7 @@ public interface LecturesRepository extends JpaRepository<Lectures, Integer>  {
 	
 	List<Lectures> findByTeachername(String name);
 	Lectures findByLectureid(int id);
-		
+	
+	List<Lectures> findByTeachernameAndClassnameAndSubject(String tname,String sname,String cname );
+	
 }

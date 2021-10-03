@@ -31,6 +31,7 @@ import com.attendance.model.Teachers;
 import com.attendance.resource.LecturesRepository;
 import com.attendance.resource.TeachersResource;
 import com.attendance.service.AdminService;
+import com.attendance.service.TeacherService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javassist.bytecode.stackmap.TypeData.ClassName;
@@ -40,6 +41,9 @@ public class AdminController {
 	
 	@Autowired
 	LecturesRepository lrepo;
+	
+	@Autowired
+	TeacherService teacherService;
 	
 	@Autowired
 	TeachersResource tr;
@@ -392,7 +396,7 @@ public class AdminController {
 		public ModelAndView saveAttendance1(HttpServletRequest request, @RequestParam(name = "name",required = false)ArrayList<String> arr) {
 			
 			String comments,tname,password,classname,subject;
-		
+
 
 			if(request.getMethod().equals("POST")) {
 				//id
@@ -403,17 +407,23 @@ public class AdminController {
 				subject = request.getParameter("subject");
 				//date and time
 				
+				Teachers teacher = teacherService.validateTeacher(tname, password);
+				if (teacher != null && tname.equals(teacher.getName()) && password.equals(teacher.getPassword())) {
+					
+					
+					Date date = new Date();
+					Timestamp ts = new Timestamp(date.getTime());
+					Lectures l = new Lectures( comments, tname, ts, classname, subject);
+					adminservice.saveLecture(l);
+					Lectures la =lrepo.getLastLecture();
+					LectureAttendance lecatt =new LectureAttendance();
+					adminservice.saveLectureAttendance(la.getLectureid(), arr1);
+					
+					
+					return new ModelAndView("redirect:/success");
+
+				}
 				
-				Date date = new Date();
-				Timestamp ts = new Timestamp(date.getTime());
-				Lectures l = new Lectures( comments, tname, ts, classname, subject);
-				adminservice.saveLecture(l);
-				Lectures la =lrepo.getLastLecture();
-				LectureAttendance lecatt =new LectureAttendance();
-				adminservice.saveLectureAttendance(la.getLectureid(), arr1);
-				
-				
-				return new ModelAndView("redirect:/success");
 			}
 			arr1=null;
 			if(arr1==null) {

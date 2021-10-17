@@ -110,7 +110,7 @@
         </head>
 
         <body>
-        
+         <form action="login" method="post">
         <div align="center" style="margin-top:20px;">
             <form action="login" method="post" >
                 <label for="username">username</label>

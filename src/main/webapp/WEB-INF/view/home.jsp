@@ -33,7 +33,8 @@
 
 </head>
 
-<body>
+<body>  
+<jsp:include page="/header"></jsp:include>
 	<br>
 	<br>
 	<a href="/addteacher">Add teacher</a>

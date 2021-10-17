@@ -32,6 +32,7 @@ import com.attendance.resource.LecturesRepository;
 import com.attendance.resource.TeachersResource;
 import com.attendance.service.AdminService;
 import com.attendance.service.TeacherService;
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javassist.bytecode.stackmap.TypeData.ClassName;
@@ -58,6 +59,15 @@ public class AdminController {
 	AdminService adminservice;
 	
 	ArrayList<String> arr1;
+	
+	@RequestMapping("/header")
+	public ModelAndView header(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("view/header.jsp");
+		return mv;
+	}
+	
+
 
 	@RequestMapping("/adminhome")
 	public ModelAndView adminhome(HttpServletRequest request) {

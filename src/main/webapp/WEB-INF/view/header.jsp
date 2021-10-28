@@ -54,8 +54,8 @@
                         Teacher
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Add Teacher</a>
-                        <a class="dropdown-item" href="#">Delete Teacher</a>
+                        <a class="dropdown-item" href="addteacher">Add Teacher</a>
+                        <a class="dropdown-item" href="deleteteacher">Delete Teacher</a>
                         
                         
                         
@@ -68,8 +68,8 @@
                         Subject
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Add Subject</a>
-                        <a class="dropdown-item" href="#">Delete Subject</a>
+                        <a class="dropdown-item" href="addsubject">Add Subject</a>
+                        <a class="dropdown-item" href="deletesubject">Delete Subject</a>
                         
                         
                         
@@ -82,14 +82,15 @@
                         Class
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Add Class</a>
-                        <a class="dropdown-item" href="#">Delete Class</a>
+                        <a class="dropdown-item" href="addclassname">Add Class</a>
+                        <a class="dropdown-item" href="deleteclassname">Delete Class</a>
                         
                         
                         
                     </div>
                 </li>
-              
+              <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
       
                 
 

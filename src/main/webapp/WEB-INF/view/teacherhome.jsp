@@ -12,9 +12,7 @@
 <title>Home</title>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
-<style type="text/css">
 
-</style>
 <script
 	src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
 	
@@ -22,20 +20,43 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js">
 		</script>
 
+<style type="text/css"
+    .nav-link{
+    color : white ! important;
+    margin-right : 4px;
+    }
+>
 
+</style>
 </head>
 <body>
-	<h1>Welcome to teacher home</h1>
-	<h1> Teacher Name :-   &nbsp;&nbsp;&nbsp;&nbsp;	  <%=request.getAttribute("teachername") %></h1>
-
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="images/mcoe.jpg" style="width :180px; height :150px">
+        </div>
+        <div class="col-sm-3 text-center">
+            <span style= "font-weight : bold ; font-size : 30px">
+                <span style="color: #C70039"> Meet Attendance System </span>
+                
+            </span>
+            </div>
+           </div>
+           </div>
+          
+	
+<marquee style="font-family : 'Monotype Corsiva'; font-size : 25px; color : white; background-color :maroon; font-weight : bold; margin-top:2%">
+Teacher Name :-   &nbsp;&nbsp;&nbsp;&nbsp;	  <%=request.getAttribute("teachername") %>    
+   </marquee>
 <%
 List<Lectures> listlectures = (List<Lectures>) request.getAttribute("lectureslist");
 
 %>
-<h1>Lectures</h1>
-	<table id="lecture" class="display" style="width: 100%">
+<h1 style align="center">Lectures</h1>
+	<table id="lecture" class="table-hover" style="width: 100%">
 		<thead>
-			<tr>
+			<tr style="background-color : #9A9898 ; color : white">
 				<th>Sr no.</th>
 				<th>id</th>
 				<th>Comments</th>
@@ -50,7 +71,7 @@ List<Lectures> listlectures = (List<Lectures>) request.getAttribute("lectureslis
 			<%
 			for (Lectures lecture : listlectures) {
 			%>
-			<tr>
+			<tr style="background-color : #DEB887">
 			
 				<td></td>
 				<td><a href = "/attendance/<%=lecture.getLectureid()%>"><%=lecture.getLectureid()%></a></td>

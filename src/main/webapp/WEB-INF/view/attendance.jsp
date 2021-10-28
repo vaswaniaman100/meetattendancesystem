@@ -51,20 +51,32 @@
 </head>
 <body>
 
-
-
-
-
-<h1>Welcome to teacher home</h1>
-
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="images/mcoe.jpg" style="width :180px; height :150px">
+        </div>
+        <div class="col-sm-3 text-center">
+            <span style= "font-weight : bold ; font-size : 30px">
+                <span style="color: #C70039"> Meet Attendance System </span>
+                
+            </span>
+            <h1 style align="center"> Welcome to Teacher Home </h1>
+        </div>
 <%
 List<LectureAttendance> listlectureattendance = (List<LectureAttendance>) request.getAttribute("listattendance");
 
 %>
-<h1>Lectures</h1>
-	<table id="lecture" class="display" style="width: 100%">
+<style>
+tr{text-align : center  }
+</style>
+<hr>
+<div class="container">   
+<h1 style align="center">Lectures</h1>
+	<table id="lecture" class="table-hover" style="width: 100%">
 		<thead>
-			<tr>
+			<tr style="background-color : #9A9898 ; color : "white">
 				<th>Sr no.</th>
 				<th>Name</th>
 			
@@ -75,7 +87,7 @@ List<LectureAttendance> listlectureattendance = (List<LectureAttendance>) reques
 			<%
 			for (LectureAttendance lecture : listlectureattendance) {
 			%>
-			<tr>
+			<tr style="background-color : #DEB887">
 			
 				<td></td>
 				

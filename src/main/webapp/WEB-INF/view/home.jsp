@@ -56,11 +56,15 @@
 	<%
 	List<Teachers> listteachers = (List<Teachers>) request.getAttribute("listteachers");
 	%>
-
-	<h1>Teachers</h1>
-	<table id="teacher" class="display" style="width: 100%">
+<style>
+tr{text-align : center  }
+</style>
+<hr>
+<div class="container">
+	<h1 style align="center">Teachers</h1>
+	<table id="teacher" class="table-hover" style="width: 100%">
 		<thead>
-			<tr>
+			<tr style="background-color : #9A9898 ; color : white">
 				<th>Sr no.</th>
 				<th>Id</th>
 				<th>name</th>
@@ -71,7 +75,7 @@
 			<%
 			for (Teachers teacher : listteachers) {
 			%>
-			<tr>
+			<tr style="background-color : #DEB887">
 			
 				<td></td>
 				<td><%=teacher.getId()%></td>
@@ -100,11 +104,15 @@
 	<%
 	List<Subjects> listsubject = (List<Subjects>) request.getAttribute("listsubject");
 	%>
-
-	<h1>Subjects</h1>
-	<table id="subject" class="display" style="width: 100%">
+<style>
+tr{text-align : center  }
+</style>
+<hr>
+<div class="container">
+	<h1 style align="center">Subjects</h1>
+	<table id="subject" class="table-hover" style="width: 100%">
 		<thead>
-			<tr>
+			<tr style="background-color : #9A9898 ; color : white">
 				<th>Sr no.</th>
 				<th>Id</th>
 				<th>name</th>
@@ -117,7 +125,7 @@
 			} else {
 				for (Subjects subject : listsubject) {
 			%>
-			<tr>
+			<tr style="background-color : #DEB887">
 				<td></td>
 				<td><%=subject.getId()%></td>
 				<td><%=subject.getSubjectname()%></td>
@@ -147,11 +155,15 @@
 	<%
 	List<Classname> listclass = (List<Classname>) request.getAttribute("listclass");
 	%>
-
-	<h1>Class</h1>
-	<table id="classname" class="display" style="width: 100%">
+<style>
+tr{text-align : center  }
+</style>
+<hr>
+<div class="container">
+	<h1 style align="center">Class</h1>
+	<table id="classname" class="table-hover" style="width: 100%">
 		<thead>
-			<tr>
+			<tr style="background-color : #9A9898 ; color : white">
 				<th>Sr no.</th>
 				<th>Id</th>
 				<th>name</th>
@@ -161,7 +173,7 @@
 			<%
 			for (Classname classname : listclass) {
 			%>
-			<tr>
+			<tr style="background-color : #DEB887">
 				<td></td>
 				<td><%=classname.getId()%></td>
 				<td><%=classname.getName()%></td>
@@ -185,9 +197,9 @@
 
 	<!-- class list end -->
  
-<h1>DropDown with Search using jQuery</h1>
-		<div>
-			<select id="country" style="width:270px;">
+<h1 style align="center">DropDown with Search using jQuery</h1>
+		<div style align="center">
+			<select id="country" style="width:270px;"  >
 			<!-- Dropdown List Option -->
 			 	<option value="volvo">Volvo</option>
   				<option value="saab">Saab</option>
@@ -218,6 +230,7 @@
 	<br>
 	<br>
 	<br>
+	<jsp:include page="/footer"></jsp:include>
 	<br>
 	<br>
 	<br>

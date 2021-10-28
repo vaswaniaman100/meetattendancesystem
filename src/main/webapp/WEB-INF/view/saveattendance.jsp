@@ -39,6 +39,7 @@
 
 
 	<form action="/saveattendance1" method="post">
+	<div align="center" style="margin-top:20px;">
 		<label>Comments</label>
 		
 		<input type="text" name="comment" id="comment">

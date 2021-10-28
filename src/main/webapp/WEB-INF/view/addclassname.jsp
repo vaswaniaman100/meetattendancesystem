@@ -25,6 +25,7 @@
 
     <body>
         <form action="/addclass" method="post">
+        <div align="center" style="margin-top:20px;">
             <label for="cname">Class name</label>
             <input type="text" name="cname" id="cname"> <br><br>
        
@@ -36,11 +37,15 @@
         <%
     	List<Classname	> listclass = (List<Classname>) request.getAttribute("listclass");
    		%>
-    
-    <h1>Class</h1>
-        <table  id="classname" class="display" border =1 style="width:100% ; text-align: center;">
+    <style>
+tr{text-align : center  }
+</style>
+<hr>
+<div class="container">
+    <h1 style align="center">Class</h1>
+        <table  id="classname" class="table-hover" border =1 style="width:100% ; text-align: center;">
             <thead>
-                <tr>
+                <tr style="background-color : #9A9898 ; color : white">
 					<th>Sr no.</th>
                     <th>Id</th>
                     <th>name</th>
@@ -50,7 +55,7 @@
             <%
           		for(Classname classname:listclass){          			
             %>
-                <tr>
+                <tr style="background-color : #DEB887">
                     <td></td>
                     <td><%=classname.getId()%></td>
                     <td><%=classname.getName() %></td>

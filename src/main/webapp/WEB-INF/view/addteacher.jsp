@@ -24,7 +24,9 @@
     </script>
 
     <body>
+    
         <form action="/addteacher" method="post">
+        <div align="center" style="margin-top:20px;">
             <label for="teachername">Teacher name</label>
             <input type="text" name="teachername" id="teachername"> <br><br>
             <label for="tpassword">Teacher Password</label>
@@ -37,11 +39,15 @@
     <%
     	List<Teachers> listteachers = (List<Teachers>) request.getAttribute("listteachers");
     %>
-    
-    <h1>Teachers</h1>
-        <table id="teacher" class="display" style="width:100%">
+    <style>
+tr{text-align : center  }
+</style>
+<hr>
+<div class="container">
+    <h1 style align="center">Teachers</h1>
+        <table id="teacher" class="table-hover" style="width:100%">
             <thead>
-                <tr>
+                <tr style="background-color : #9A9898 ; color : white">
                     <th>Sr no.</th>
                     <th>Id</th>
                     <th>name</th>
@@ -52,7 +58,7 @@
             <%
           		for(Teachers teacher:listteachers){          			
             %>
-                <tr>
+                <tr style="background-color : #DEB887">
                     <td></td>
                     <td><%=teacher.getId() %></td>
                     <td><%=teacher.getName() %></td>

@@ -25,6 +25,7 @@
 
     <body>
         <form action="/addsubject" method="post">
+        <div align="center" style="margin-top:20px;">
             <label for="sname">Subject name</label>
             <input type="text" name="sname" id="sname"> <br><br>
        
@@ -36,11 +37,15 @@
         <%
     	List<Subjects> listsubject = (List<Subjects>) request.getAttribute("listsubject");
    		%>
-    
-    <h1>Subjects</h1>
-        <table id="subject" class="display" style="width:100%">
+    <style>
+tr{text-align : center  }
+</style>
+<hr>
+<div class="container">
+    <h1 style align="center">Subjects</h1>
+        <table id="subject" class="table-hover" style="width:100%">
             <thead>
-                <tr>
+                <tr style="background-color : #9A9898 ; color : white">
                     <th>Sr no.</th>
                     <th>Id</th>
                     <th>name</th>
@@ -50,7 +55,7 @@
             <%
           		for(Subjects subject:listsubject){          			
             %>
-                <tr>
+                <tr style="background-color : #DEB887">
                     <td></td>
                     <td><%=subject.getId() %></td>
                     <td><%=subject.getSubjectname() %></td>

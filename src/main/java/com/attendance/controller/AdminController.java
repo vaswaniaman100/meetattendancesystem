@@ -67,6 +67,13 @@ public class AdminController {
 		return mv;
 	}
 	
+	@RequestMapping("/footer")
+	public ModelAndView footer(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("view/footer.jsp");
+		return mv;
+	}
+	
 
 
 	@RequestMapping("/adminhome")

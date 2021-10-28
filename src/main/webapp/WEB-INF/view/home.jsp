@@ -9,22 +9,23 @@
 
 <head>
 
-
+<style>
+	tr{
+		text-align : center  
+	}
+</style>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
 	href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
 <title>Home</title>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
-<style type="text/css">
 
-</style>
 <script
 	src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
 	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js">
-		</script>
+		
 <style type="text/css">
 	.select2-container--open .select2-dropdown {
     	left: 8px;
@@ -56,9 +57,7 @@
 	<%
 	List<Teachers> listteachers = (List<Teachers>) request.getAttribute("listteachers");
 	%>
-<style>
-tr{text-align : center  }
-</style>
+
 <hr>
 <div class="container">
 	<h1 style align="center">Teachers</h1>
@@ -108,6 +107,7 @@ tr{text-align : center  }
 tr{text-align : center  }
 </style>
 <hr>
+</div>
 <div class="container">
 	<h1 style align="center">Subjects</h1>
 	<table id="subject" class="table-hover" style="width: 100%">
@@ -159,6 +159,7 @@ tr{text-align : center  }
 tr{text-align : center  }
 </style>
 <hr>
+</div>
 <div class="container">
 	<h1 style align="center">Class</h1>
 	<table id="classname" class="table-hover" style="width: 100%">
@@ -215,7 +216,7 @@ tr{text-align : center  }
   				<option value="audi">Audi</option>
 			</select>
 		</div>
-
+</div>
 	
 	
 		

@@ -25,6 +25,8 @@
     </script>
 
     <body>
+    <jsp:include page="/teacherheader"></jsp:include>
+    <br>
         <form action="/deletesubject" method="post">
         <div align="center" style="margin-top:20px;">
              <label for="sid">Enter Teacher id</label>
@@ -75,8 +77,12 @@ tr{text-align : center  }
                 });
             });
         </script>
-        
+        </div>
         <!-- Subject list end -->
     </body>
-
+<br>
+<br>
+<br>
+<br>
+<jsp:include page="/footer"></jsp:include>
     </html>

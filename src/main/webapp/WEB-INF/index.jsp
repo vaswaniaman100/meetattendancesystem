@@ -67,20 +67,20 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#" style="margin-left:50px"><i class="fa fa-users mr-1"></i>Admin</a>
+            <a class="nav-link" href="/adminhome" style="margin-left:50px"><i class="fa fa-users mr-1"></i>Admin</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#" style="margin-left:50px" ><i class="fa fa-user-plus mr-1"></i>Teacher</a>
+            <a class="nav-link" href="/adminhome" style="margin-left:50px" ><i class="fa fa-user-plus mr-1"></i>Teacher</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#" style="margin-left:50px"><i class="fa fa-sign-language mr-1"></i>About Us</a>
+            <a class="nav-link" href="https://moderncoe.edu.in/" style="margin-left:50px"><i class="fa fa-sign-language mr-1"></i>About Us</a>
         </li>
 
 
         <li class="nav-item">
-            <a class="nav-link" href="#"style="margin-left:50px" ><i class="fa fa-sign-in mr-1"></i>Contact Us</a>
+            <a class="nav-link" href="https://moderncoe.edu.in/"style="margin-left:50px" ><i class="fa fa-sign-in mr-1"></i>Contact Us</a>
         </li>
 
     </ul>
@@ -125,5 +125,11 @@
             </div>
 
         </body>
-
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+<jsp:include page="/footer"></jsp:include>
         </html>

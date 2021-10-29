@@ -25,7 +25,8 @@
     </script>
 
     <body>
-      
+      <jsp:include page="/teacherheader"></jsp:include>
+    <br>
         <form action="/deleteteacher" method="post">
         <div align="center" style="margin-top:20px;">
             <label for="tid">Enter Teacher id</label>
@@ -80,7 +81,13 @@ tr{text-align : center  }
                 });
             });
         </script>
+        </div>
         <!-- Teachers list end -->
     </body>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<jsp:include page="/footer"></jsp:include>
     </html>

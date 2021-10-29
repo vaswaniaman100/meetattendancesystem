@@ -74,7 +74,12 @@ public class AdminController {
 		return mv;
 	}
 	
-
+	@RequestMapping("/teacherheader")
+	public ModelAndView teacherheader(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("view/teacherheader.jsp");
+		return mv;
+	}
 
 	@RequestMapping("/adminhome")
 	public ModelAndView adminhome(HttpServletRequest request) {

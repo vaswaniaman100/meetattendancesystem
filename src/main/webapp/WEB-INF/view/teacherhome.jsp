@@ -13,8 +13,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
 
-<script
-	src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+
 	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js">
@@ -50,6 +49,8 @@ List<Lectures> listlectures = (List<Lectures>) request.getAttribute("lectureslis
 
 %>
 <h1 style align="center">Lectures</h1>
+<script
+	src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
 	<table id="lecture" class="table-hover" style="width: 100%">
 		<thead>
 			<tr style="background-color : #9A9898 ; color : white">

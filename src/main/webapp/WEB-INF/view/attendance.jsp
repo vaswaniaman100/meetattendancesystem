@@ -16,9 +16,7 @@
 <style type="text/css">
 
 </style>
-<script
-	src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
-	
+
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js">
 		</script>
@@ -71,6 +69,9 @@ tr{text-align : center  }
 <hr>
 <div class="container">  
 <h1 style align="center">Lectures</h1>
+<script
+	src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+	
 	<table id="lecture" class="table-hover" style="width: 100%">
 		<thead>
 			<tr style="background-color : #9A9898 ; color : "white">
@@ -79,6 +80,8 @@ tr{text-align : center  }
 			
 			
 			</tr>
+		</thead>
+		<tbody>
 			<%
 			for (LectureAttendance lecture : listlectureattendance) {
 			%>

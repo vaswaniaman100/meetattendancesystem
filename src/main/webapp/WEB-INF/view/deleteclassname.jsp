@@ -31,6 +31,7 @@
 			<label for="cid">Enter class id</label>
             <input type="text" name="cid" id="cid"> <br><br>
             <input type="submit" value="Delete">
+            </div>
         </form>
         
         <!-- class list start -->

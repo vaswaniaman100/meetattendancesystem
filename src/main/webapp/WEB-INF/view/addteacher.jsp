@@ -34,6 +34,7 @@
             <input type="text" name="tpassword" id="tpassword">
             <br> <br>
             <input type="submit" value="Add Teacher">
+            </div>
         </form>
         
         <!-- Teachers list start -->
@@ -90,7 +91,7 @@ tr{text-align : center  }
 <br>
 <br>
         
-        <jsp:include page="/footer"></jsp:include>
+<jsp:include page="/footer"></jsp:include>
     </body>
 
     </html>

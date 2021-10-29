@@ -24,6 +24,7 @@
             <label for="classname">Class name </label>
             <input type="text" name="classname" id="classname"> <br><br>
             <input type="submit" value="Create Report">
+            </div>
         </form>
 </body>
 <br>

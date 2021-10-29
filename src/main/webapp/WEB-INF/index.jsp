@@ -120,16 +120,15 @@
                 <br>
                 <br>
                 <input type="submit" value="Login">
-
-            </form>
-            </div>
-
-        </body>
+</form>
+</div>
+</form> 
+<br>
         <br>
         <br>
         <br>
         <br>
-        <br>
-        <br>
+        <br>     
 <jsp:include page="/footer"></jsp:include>
+        </body>
         </html>

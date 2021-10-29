@@ -33,6 +33,7 @@
        
             <br> <br>
             <input type="submit" value="Add Class">
+            </div>
         </form>
         
         <!-- class list start -->

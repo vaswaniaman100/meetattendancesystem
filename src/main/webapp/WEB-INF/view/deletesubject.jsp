@@ -9,7 +9,7 @@
         <title>Insert title here</title>
          <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">	
           <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+       
     </head>
     <script type="text/javascript">
     var alertsystem = "<%=(String)request.getAttribute("alertdata") %>";
@@ -27,6 +27,7 @@
     <body>
     <jsp:include page="/teacherheader"></jsp:include>
     <br>
+     <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
         <form action="/deletesubject" method="post">
         <div align="center" style="margin-top:20px;">
              <label for="sid">Enter Teacher id</label>

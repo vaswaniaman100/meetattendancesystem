@@ -21,8 +21,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
 
-<script
-	src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+
 	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 		
@@ -36,6 +35,8 @@
 
 <body>  
 <jsp:include page="/header"></jsp:include>
+<script
+	src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
 	<br>
 	<br>
 	<%

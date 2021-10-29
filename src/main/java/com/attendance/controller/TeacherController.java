@@ -129,10 +129,10 @@ public class TeacherController {
 				String teachername = username;
 				String subject = request.getParameter("subject");
 				String classname = request.getParameter("classname");
-				System.out.println(teachername+" "+subject+" "+classname);
+				//System.out.println(teachername+" "+subject+" "+classname);
 				//get lecture by teachername subject classname
 				List<Lectures> listlectures = teacherService.findlecturesbytcs(teachername, classname, subject);
-				System.out.println(listlectures);
+				//System.out.println(listlectures);
 				//remove and store lecture id from listlectures  //complete
 				List<Integer> listoflecid= listlectures.stream().map(m->m.getLectureid()).collect(Collectors.toList());
 				// get attendance of relevant ids          //complete
@@ -141,11 +141,11 @@ public class TeacherController {
 				List<Timestamp> datelist = listlectures.stream().map(m->m.getDateoflec()).collect(Collectors.toList());
 				
 				// getting students name            //complete
-				List<String> studentsname = attendanceResource.findAll().stream().map(LectureAttendance::getStudentname).distinct().collect(Collectors.toList());
+				//List<String> studentsname = attendanceResource.findAll().stream().map(LectureAttendance::getStudentname).distinct().collect(Collectors.toList());
 				
 				mv.addObject("listoflecid",listoflecid);
 				mv.addObject("attendance",attendance);
-				mv.addObject("studentsname",studentsname);
+				//mv.addObject("studentsname",studentsname);
 				mv.addObject("datelist",datelist);
 				mv.setViewName("view/reporttable.jsp");
 				return mv;

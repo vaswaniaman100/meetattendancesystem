@@ -1,3 +1,5 @@
+<%@page import="java.util.stream.Collectors"%>
+<%@page import="java.util.stream.Collector"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.attendance.model.LectureAttendanceR"%>
@@ -26,7 +28,7 @@ List<LectureAttendanceR> attendance = new ArrayList<>();
 for(LectureAttendance las :attendance1){
 	attendance.add( new LectureAttendanceR(las.getLectureid(),las.getStudentname()));
 }
-List<String> studentsname=(List<String>)request.getAttribute("studentsname");
+List<String> studentsname=attendance1.stream().map(LectureAttendance::getStudentname).distinct().collect(Collectors.toList());
 System.out.println(listoflecid);
 System.out.println(attendance);
 System.out.println(studentsname);
@@ -52,9 +54,9 @@ System.out.println(studentsname);
             int tmp=0;
             for(String sname:studentsname){ %>
             <tr>
-                 
-                    <td><%=sname %></td>
+                 <td><%=sname %></td>
            <%
+          
         	   for(Integer id:listoflecid){
         		  if(attendance.contains(new LectureAttendanceR(id,sname))){
         			  
@@ -64,7 +66,8 @@ System.out.println(studentsname);
         			  out.write("<td>absent </td>");
         		  }
           
-  				}
+  				
+           	}
            
            %>
              </tr> 

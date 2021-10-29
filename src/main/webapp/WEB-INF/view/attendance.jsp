@@ -57,7 +57,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
-            <img src="static/images/mcoe.jpg" style="width :180px; height :150px">
+            <img src="/images/mcoe.jpg" style="width :180px; height :150px">
         </div>
         </div>
         </div>

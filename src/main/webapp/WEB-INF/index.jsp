@@ -35,7 +35,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
-            <img src="images/mcoe.jpg" style="width :180px; height :150px">
+            <img src="images/mcoe.jpg" style="width :100px; height :100px; margin-top:10%;">
         </div>
 
         <div class="col-sm-6 mt-5 text-center">
@@ -58,7 +58,7 @@
     </div>
 
 </div>
-
+<br>
 <nav class="navbar navbar-expand-sm" style="background-color :#581845  ">
     <a class="navbar-brand text-white pl-5 font-weight-bold" style="font-family :'Monotype Corsiva'">Meet Attendance System</a>
     <ul class="navbar-nav">

@@ -38,22 +38,6 @@
 <jsp:include page="/header"></jsp:include>
 	<br>
 	<br>
-	<a href="/addteacher">Add teacher</a>
-	<br>
-	<a href="/addsubject">Add subject</a>
-	<br>
-	<a href="/addclass">Add Class Name</a>
-	<br>
-	<a href="/deleteteacher">Delete teacher</a>
-	<br>
-	<a href="/deletesubject">delete subject teacher</a>
-	<br>
-	<a href="/deleteclassname">delete class</a>
-	<br>
-
-	<br>
-	<br>
-	<!-- Teachers list start -->
 	<%
 	List<Teachers> listteachers = (List<Teachers>) request.getAttribute("listteachers");
 	%>
@@ -197,29 +181,7 @@ tr{text-align : center  }
 	</script>
 
 	<!-- class list end -->
- 
-<h1 style align="center">DropDown with Search using jQuery</h1>
-		<div style align="center">
-			<select id="country" style="width:270px;"  >
-			<!-- Dropdown List Option -->
-			 	<option value="volvo">Volvo</option>
-  				<option value="saab">Saab</option>
-  				<option value="mercedes">Mercedes</option>
-  				<option value="audi">Audi</option>
-			 	<option value="volvo">Volvo</option>
-  				<option value="saab">Saab</option>
-  				<option value="mercedes">Mercedes</option>
-  				<option value="audi">Audi</option>
-			 	<option value="volvo">Volvo</option>
-  				<option value="saab">Saab</option>
-  				<option value="mercedes">Mercedes</option>
-  				<option value="audi">Audi</option>
-			</select>
-		</div>
 </div>
-	
-	
-		
 		<script type="text/javascript">
 			$(document).ready(function() {
 				//var country = ["Australia", "Bangladesh", "Denmark", "Hong Kong", "Indonesia", "Netherlands", "New Zealand", "South Africa"];
@@ -231,39 +193,15 @@ tr{text-align : center  }
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<jsp:include page="/footer"></jsp:include>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	
+	
 	<br>
 
 

@@ -82,24 +82,17 @@
                         Class
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="addclassname">Add Class</a>
+                        <a class="dropdown-item" href="addclass">Add Class</a>
                         <a class="dropdown-item" href="deleteclassname">Delete Class</a>
                         
                         
                         
                     </div>
                 </li>
-              <li class="nav-item">
+      </ul>
+      </div>      
               <a class="nav-link" href="logout">Logout</a>
-      
-                
-
-            </ul>
-        </div>
-    </nav>
-
-    
-
+</nav>
 
 </body>
 

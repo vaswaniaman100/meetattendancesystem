@@ -24,6 +24,8 @@
     </script>
 
     <body>
+    <jsp:include page="/teacherheader"></jsp:include>
+    <br>
         <form action="/addclass" method="post">
         <div align="center" style="margin-top:20px;">
             <label for="cname">Class name</label>
@@ -76,8 +78,16 @@ tr{text-align : center  }
                 });
             });
         </script>
+        </div>
         
         <!-- class list end -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <jsp:include page="/footer"></jsp:include>
     </body>
 
     </html>

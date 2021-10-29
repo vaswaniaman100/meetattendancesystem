@@ -52,17 +52,14 @@
 <body>
 
 <body>
+<jsp:include page="/teacherheader"></jsp:include>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
-            <img src="images/mcoe.jpg" style="width :180px; height :150px">
+            <img src="static/images/mcoe.jpg" style="width :180px; height :150px">
         </div>
-        <div class="col-sm-3 text-center">
-            <span style= "font-weight : bold ; font-size : 30px">
-                <span style="color: #C70039"> Meet Attendance System </span>
-                
-            </span>
-            <h1 style align="center"> Welcome to Teacher Home </h1>
+        </div>
         </div>
 <%
 List<LectureAttendance> listlectureattendance = (List<LectureAttendance>) request.getAttribute("listattendance");
@@ -72,7 +69,7 @@ List<LectureAttendance> listlectureattendance = (List<LectureAttendance>) reques
 tr{text-align : center  }
 </style>
 <hr>
-<div class="container">   
+<div class="container">  
 <h1 style align="center">Lectures</h1>
 	<table id="lecture" class="table-hover" style="width: 100%">
 		<thead>
@@ -82,8 +79,6 @@ tr{text-align : center  }
 			
 			
 			</tr>
-		</thead>
-		<tbody>
 			<%
 			for (LectureAttendance lecture : listlectureattendance) {
 			%>
@@ -100,7 +95,11 @@ tr{text-align : center  }
 			%>
 		</tbody>
 	</table>
-	<input type="button" value="Download Attendance" onclick="doit('xlsx');">
+	</div>
+
+	<br>
+	<br>
+	<input type="button" value="Download Attendance" style="margin-left: 650px;"onclick="doit('xlsx');">
 	<script>
 		$(document).ready(function() {
 			$('#lecture').DataTable({
@@ -114,8 +113,16 @@ tr{text-align : center  }
 
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
-
+<jsp:include page="/footer"></jsp:include>
 </body>
+
 </html>

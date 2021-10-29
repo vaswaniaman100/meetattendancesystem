@@ -88,4 +88,13 @@
 		});
 	</script>
 </body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<jsp:include page="/footer"></jsp:include>
 </html>

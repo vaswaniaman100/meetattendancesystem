@@ -24,6 +24,8 @@
     </script>
 
     <body>
+    <jsp:include page="/teacherheader"></jsp:include>
+    <br>
         <form action="/deleteclassname" method="post">
         <div align="center" style="margin-top:20px;">
 			<label for="cid">Enter class id</label>
@@ -74,8 +76,15 @@ tr{text-align : center  }
                 });
             });
         </script>
+        </div>
         
         <!-- class list end -->
+        <br>
+<br>
+<br>
+<br>
+<br>
+<jsp:include page="/footer"></jsp:include>
     </body>
 
     </html>

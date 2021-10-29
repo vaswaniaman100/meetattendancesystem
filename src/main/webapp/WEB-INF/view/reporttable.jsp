@@ -15,7 +15,14 @@
         <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
-<h1>Report table</h1>
+<jsp:include page="/teacherheader"></jsp:include>
+<br>
+<style>
+tr{text-align : center  }
+</style>
+<hr>
+<div class="container">
+<h1 style align="center">Report Table</h1>
 
 <%
 List<Integer> listoflecid=(List<Integer>)request.getAttribute("listoflecid");
@@ -35,7 +42,7 @@ System.out.println(studentsname);
 %>
 <table id="teacher" class="display" style="width:100%">
             <thead>
-                <tr>
+                <tr style="background-color : #9A9898 ; color : white">
                  
                     <th>Student name</th>
                 
@@ -51,7 +58,7 @@ System.out.println(studentsname);
             int pos = 0;
             int tmp=0;
             for(String sname:studentsname){ %>
-            <tr>
+            <tr style="background-color : #DEB887">
                  
                     <td><%=sname %></td>
            <%
@@ -86,5 +93,18 @@ System.out.println(studentsname);
                 });
             });
         </script>
+        
+       </div>
+       
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>    
+<jsp:include page="/footer"></jsp:include>
 </body>
+
+
 </html>

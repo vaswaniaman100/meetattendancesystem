@@ -31,22 +31,18 @@
 </head>
 <body>
 <body>
+<jsp:include page="/teacherheader"></jsp:include>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
-            <img src="images/mcoe.jpg" style="width :180px; height :150px">
+            <img src="images/mcoe.jpg" style="width :180px; height :150px; margin-right:250%;">
         </div>
-        <div class="col-sm-3 text-center">
-            <span style= "font-weight : bold ; font-size : 30px">
-                <span style="color: #C70039"> Meet Attendance System </span>
-                
-            </span>
-            </div>
+        
            </div>
            </div>
           
-	
-<marquee style="font-family : 'Monotype Corsiva'; font-size : 25px; color : white; background-color :maroon; font-weight : bold; margin-top:2%">
+<marquee style="font-family : 'Monotype Corsiva'; font-size : 25px; color : white; background-color :maroon; font-weight : bold; margin-top:1%">
 Teacher Name :-   &nbsp;&nbsp;&nbsp;&nbsp;	  <%=request.getAttribute("teachername") %>    
    </marquee>
 <%
@@ -103,4 +99,14 @@ List<Lectures> listlectures = (List<Lectures>) request.getAttribute("lectureslis
 
 
 </body>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<jsp:include page="/footer"></jsp:include>
 </html>

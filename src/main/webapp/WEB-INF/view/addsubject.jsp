@@ -24,6 +24,8 @@
     </script>
 
     <body>
+    <jsp:include page="/teacherheader"></jsp:include>
+    <br>
         <form action="/addsubject" method="post">
         <div align="center" style="margin-top:20px;">
             <label for="sname">Subject name</label>
@@ -76,8 +78,15 @@ tr{text-align : center  }
                 });
             });
         </script>
+        </div>
+        
         
         <!-- Subject list end -->
+        <br>
+        <br>
+        <br>
+        <jsp:include page="/footer"></jsp:include>
     </body>
+    
 
     </html>

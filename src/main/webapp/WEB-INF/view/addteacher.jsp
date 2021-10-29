@@ -24,7 +24,8 @@
     </script>
 
     <body>
-    
+    <jsp:include page="/teacherheader"></jsp:include>
+    <br>
         <form action="/addteacher" method="post">
         <div align="center" style="margin-top:20px;">
             <label for="teachername">Teacher name</label>
@@ -80,7 +81,16 @@ tr{text-align : center  }
                 });
             });
         </script>
+        </div>
         <!-- Teachers list end -->
+        
+        <br>
+<br>
+<br>
+<br>
+<br>
+        
+        <jsp:include page="/footer"></jsp:include>
     </body>
 
     </html>

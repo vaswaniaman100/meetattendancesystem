@@ -1,3 +1,4 @@
+<%@page import="java.util.stream.Collectors"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.attendance.model.LectureAttendanceR"%>
@@ -33,7 +34,7 @@ List<LectureAttendanceR> attendance = new ArrayList<>();
 for(LectureAttendance las :attendance1){
 	attendance.add( new LectureAttendanceR(las.getLectureid(),las.getStudentname()));
 }
-List<String> studentsname=(List<String>)request.getAttribute("studentsname");
+List<String> studentsname=attendance.stream().map(LectureAttendanceR::getStudentname).distinct().toList();
 System.out.println(listoflecid);
 System.out.println(attendance);
 System.out.println(studentsname);

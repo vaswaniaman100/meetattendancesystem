@@ -93,7 +93,8 @@ public class AdminController {
 		}
 
 		if (username == null && password == null) {
-			return new ModelAndView("redirect:/");
+			mv.setViewName("index.jsp");
+			return mv;
 		} else if (!username.equals(u) && !password.equals(p)) {
 
 			return new ModelAndView("redirect:/teacherhome");

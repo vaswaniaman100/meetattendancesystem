@@ -428,7 +428,7 @@ public class AdminController {
 				classname = request.getParameter("classname");
 				subject = request.getParameter("subject");
 				//date and time
-				
+				System.out.println(subject);
 				Teachers teacher = teacherService.validateTeacher(tname, password);
 				if (teacher != null && tname.equals(teacher.getName()) && password.equals(teacher.getPassword())) {
 					
@@ -436,6 +436,7 @@ public class AdminController {
 					Date date = new Date();
 					Timestamp ts = new Timestamp(date.getTime());
 					Lectures l = new Lectures( comments, tname, ts, classname, subject);
+					System.out.println(subject);
 					adminservice.saveLecture(l);
 					Lectures la =lrepo.getLastLecture();
 					LectureAttendance lecatt =new LectureAttendance();

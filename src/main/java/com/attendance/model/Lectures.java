@@ -39,7 +39,7 @@ public class Lectures {
 		this.teachername = teachername;
 		this.dateoflec = dateoflec;
 		this.classname = classname;
-		subject = subject;
+		this.subject = subject;
 	}
 
 	public int getLectureid() {

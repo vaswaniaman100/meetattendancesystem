@@ -41,7 +41,27 @@ System.out.println(studentsname);
 
 
 %>
-<table id="teacher" class="display" style="width:100%">
+
+
+		<script type="text/javascript" src="//unpkg.com/xlsx/dist/shim.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+		<script type="text/javascript" src="//unpkg.com/blob.js@1.0.1/Blob.js"></script>
+		<script type="text/javascript" src="//unpkg.com/file-saver@1.3.3/FileSaver.js"></script>
+		
+		
+		
+		<script>
+				function doit(type, fn, dl) {
+					var elt = document.getElementById('teacher');
+					var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
+					return dl ?
+						XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
+						XLSX.writeFile(wb, fn || ('Attendance.' + (type || 'xlsx')));
+				}
+		</script>
+		
+		
+<table id="teacher" class="display" style="width:100%;white-space: nowrap;">
             <thead>
                 <tr style="background-color : #9A9898 ; color : white">
                  
@@ -81,7 +101,8 @@ System.out.println(studentsname);
         
             </tbody>
         </table>
-        
+        <br>
+        <input type="button" value="Download Attendance" style="margin-left: 650px;"onclick="doit('xlsx');">
         
          <script>
             $(document).ready(function () {
@@ -94,7 +115,7 @@ System.out.println(studentsname);
                 });
             });
         </script>
-        
+         
        </div>
        
     <br>

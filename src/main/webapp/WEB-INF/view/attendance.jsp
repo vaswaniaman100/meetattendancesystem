@@ -110,6 +110,7 @@ tr{text-align : center  }
 					$("td:first", nRow).html(iDisplayIndex + 1);
 					return nRow;
 				},
+				  "paging": false,
 			});
 		});
 	</script>

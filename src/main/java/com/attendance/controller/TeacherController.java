@@ -21,6 +21,7 @@ import com.attendance.model.Lectures;
 import com.attendance.model.Subjects;
 import com.attendance.model.Teachers;
 import com.attendance.resource.LectureAttendanceResource;
+import com.attendance.service.AdminService;
 import com.attendance.service.TeacherService;
 
 @Controller
@@ -28,6 +29,9 @@ public class TeacherController {
 
 	@Autowired
 	TeacherService teacherService;
+	
+	@Autowired
+	AdminService adminService;
 
 	HttpSession session;
 	
@@ -150,6 +154,10 @@ public class TeacherController {
 				mv.setViewName("view/reporttable.jsp");
 				return mv;
 			}
+			List<Subjects> listsub = adminService.getSubjectsList();
+			List<Classname> listclass = adminService.getClassList();
+			mv.addObject("listsub",listsub);
+			mv.addObject("listclass",listclass);
 			mv.setViewName("view/report.jsp");
 				
 		} else {

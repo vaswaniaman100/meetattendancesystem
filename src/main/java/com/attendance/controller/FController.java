@@ -38,6 +38,37 @@ public class FController {
 	@RequestMapping("/")
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView();
+		String username =null ,password =null;
+		try {
+			username = session.getAttribute("username").toString();
+			password = session.getAttribute("password").toString();
+		} catch (Exception e) {
+//			e.printStackTrace();
+		}
+		
+		Teachers teacher = teacherService.validateTeacher(username, password);
+		
+		if (username == null && password == null) {
+			mv.setViewName("index.jsp");
+			return mv;
+		} else if(username.equals(u) && password.equals(p)) {
+
+			return new ModelAndView("redirect:/adminhome");
+
+		}
+		else if (teacher != null && username.equals(teacher.getName()) && password.equals(teacher.getPassword())) {
+	
+			return new ModelAndView("redirect:/teacherhome");
+			
+		} else {
+
+			mv.setViewName("index.jsp");
+		}
+		
+		if (!username.equals(u) && !password.equals(p)) {
+
+			mv.setViewName("index.jsp");
+		}
 
 		mv.setViewName("index.jsp");
 		return mv;

@@ -107,6 +107,7 @@ System.out.println(studentsname);
          <script>
             $(document).ready(function () {
                 $('#teacher').DataTable({
+                	  "paging": false,
                    // "fnRowCallback": function (nRow, aData, iDisplayIndex) {
                    //     $("td:first", nRow).html(iDisplayIndex + 1);
                     //    return nRow;

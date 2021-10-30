@@ -475,7 +475,7 @@ public class AdminController {
 	public ModelAndView logout(HttpServletRequest request) {
 		request.getSession().removeAttribute("username");
 		request.getSession().removeAttribute("password");
-		return null;
+		return new ModelAndView("redirect:/");
 	}
 
 }

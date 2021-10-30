@@ -16,8 +16,6 @@
 		
 		
 		
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 		<style type="text/css">
 			.select2-container--open .select2-dropdown {
 				left: 8px;
@@ -39,6 +37,8 @@
 	%>
 
 
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 
 	<form action="/saveattendance1" method="post">
 	

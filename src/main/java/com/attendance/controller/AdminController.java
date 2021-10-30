@@ -90,6 +90,7 @@ public class AdminController {
 			username = session.getAttribute("username").toString();
 			password = session.getAttribute("password").toString();
 		} catch (Exception e) {
+//			e.printStackTrace();
 		}
 
 		if (username == null && password == null) {

@@ -68,7 +68,8 @@ public class TeacherController {
 			request.getSession().removeAttribute("username");
 			request.getSession().removeAttribute("password");
 			System.out.println("hello");
-			return new ModelAndView("redirect:/");
+			mv.setViewName("index.jsp");
+			return mv;
 		} else if (teacher != null && username.equals(teacher.getName()) && password.equals(teacher.getPassword())) {
 			
 	

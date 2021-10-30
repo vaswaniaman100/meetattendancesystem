@@ -38,8 +38,8 @@
             <img src="images/mcoe.jpg" style="width :180px; height :150px; margin-right:250%;">
         </div>
         
-           </div>
-           </div>
+     </div>
+</div>
           
 <marquee style="font-family : 'Monotype Corsiva'; font-size : 25px; color : white; background-color :maroon; font-weight : bold; margin-top:1%">
 Teacher Name :-   &nbsp;&nbsp;&nbsp;&nbsp;	  <%=request.getAttribute("teachername") %>    

@@ -15,10 +15,13 @@
 		<script src="//code.jquery.com/jquery.min.js"></script>
 		
 		
-		
+
 		<style type="text/css">
 			.select2-container--open .select2-dropdown {
 				left: 8px;
+			}
+			th, td {
+			  padding: 10px;
 			}
 		</style>
 	
@@ -36,43 +39,73 @@
 	List<String> className = listclass.stream().map(m->m.getName()).collect(Collectors.toList());
 	%>
 
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="images/mcoe.jpg" style="width :180px; height :150px; margin-right:250%;">
+        </div>
+        
+     </div>
+</div>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
 
 	<form action="/saveattendance1" method="post">
-	
-		<label>Comments</label>
-		
-		<input type="text" name="comment" id="comment">
-		<br><br>
-	
-		<label>Teacher Name</label> 
-	
-		<select id="teachername" name="teachername" style="width: 270px;">
-		<%for(String s:teacherName){       %>
-			<option value="<%=s%>"><%=s %></option>
-			<%} %>
-		</select>
-		
-		<br><br>
-        
-		<label>Password</label>
-		<input type="text" name="password" id="password"><br><br>
-		<label>Class</label>
-	<select id="classname" name="classname" style="width: 270px;">
+	<center>
+		<table style="align-content: center;">
+			<tr>
+				<td><label>Comments</label></td>
+				<td><input type="text" name="comment" id="comment"></td>
+			</tr>
+			<tr>
+				<td><label>Teacher Name</label> </td>
+				<td><select id="teachername" name="teachername" style="width: 270px;">
+							<%for(String s:teacherName){       %>
+								<option value="<%=s%>"><%=s %></option>
+								<%} %>
+							</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Password</label></td>
+				<td><input type="text" name="password" id="password"></td>
+			</tr>
+			<tr>
+				<td><label>Class</label></td>
+				<td><select id="classname" name="classname" style="width: 270px;">
 		<%for(String s:className){       %>
 			<option value="<%=s%>"><%=s %></option>
 			<%} %>
-		</select><br><br>
-		<label>Subject</label>
+		</select></td>
+			</tr>
+			<tr>
+				<td><label>Subject</label></td>
+				<td><select id="subject" name="subject" style="width: 270px;">
+					<%for(String s:subjectName){       %>
+						<option value="<%=s%>"><%=s %></option>
+						<%} %>
+					</select>
+				</td>
+			</tr>
+			<tr>
+			<td style="text-align: center;" colspan="2"><input type="submit" value="Submit"></td>
+			</tr>
+			
+		</table>
+	
 		
-		<select id="subject" name="subject" style="width: 270px;">
-		<%for(String s:subjectName){       %>
-			<option value="<%=s%>"><%=s %></option>
-			<%} %>
-		</select><br><br>
-		<input type="submit" value="Submit">
+		</center>
+		
+		
+
+        
+		
+		
+		
+	
+		
+		
+		
 		
 		
 	</form>
@@ -91,11 +124,6 @@
 		});
 	</script>
 </body>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>

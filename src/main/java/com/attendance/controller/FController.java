@@ -52,7 +52,7 @@ public class FController {
 			mv.setViewName("index.jsp");
 			return mv;
 		} else if(username.equals(u) && password.equals(p)) {
-
+			
 			return new ModelAndView("redirect:/adminhome");
 
 		}

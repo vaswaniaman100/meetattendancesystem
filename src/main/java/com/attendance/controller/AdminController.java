@@ -96,7 +96,7 @@ public class AdminController {
 			return new ModelAndView("redirect:/");
 		} else if (!username.equals(u) && !password.equals(p)) {
 
-			return new ModelAndView("redirect:/");
+			return new ModelAndView("redirect:/teacherhome");
 
 		} else {
 

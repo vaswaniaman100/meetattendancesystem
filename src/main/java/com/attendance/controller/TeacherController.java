@@ -80,7 +80,7 @@ public class TeacherController {
 		}else if (!username.equals(u) && !password.equals(p)) {
 			request.getSession().removeAttribute("username");
 			request.getSession().removeAttribute("password");
-System.out.println("hello");
+//System.out.println("hello");
 			return new ModelAndView("redirect:/");
 
 		} 

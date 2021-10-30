@@ -20,12 +20,12 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js">
 		</script>
 
-<style type="text/css"
+<style type="text/css">
     .nav-link{
     color : white ! important;
     margin-right : 4px;
     }
->
+
 
 </style>
 </head>

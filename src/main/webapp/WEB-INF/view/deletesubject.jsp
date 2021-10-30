@@ -33,6 +33,7 @@
              <label for="sid">Enter Teacher id</label>
             <input type="text" name="sid" id="sid"> <br><br>
             <input type="submit" value="Delete">
+            </div>
         </form>
         
           <!-- Subject list start -->

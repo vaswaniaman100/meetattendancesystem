@@ -33,6 +33,7 @@
        
             <br> <br>
             <input type="submit" value="Add Subject">
+            </div>
         </form>
         
           <!-- Subject list start -->

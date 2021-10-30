@@ -26,6 +26,8 @@
 	
 </head>
 <body>
+<jsp:include page="/teacherheader"></jsp:include>
+<br>
 	<%
 	List<Teachers> listteachers = (List<Teachers>) request.getAttribute("listteachers");
 	List<String> teacherName = listteachers.stream().map(m->m.getName()).collect(Collectors.toList());
@@ -39,21 +41,22 @@
 
 
 	<form action="/saveattendance1" method="post">
-	<div align="center" style="margin-top:20px;">
+	
 		<label>Comments</label>
 		
 		<input type="text" name="comment" id="comment">
 		<br><br>
+	
 		<label>Teacher Name</label> 
-		
-		
-		
+	
 		<select id="teachername" name="teachername" style="width: 270px;">
 		<%for(String s:teacherName){       %>
 			<option value="<%=s%>"><%=s %></option>
 			<%} %>
 		</select>
+		
 		<br><br>
+        
 		<label>Password</label>
 		<input type="text" name="password" id="password"><br><br>
 		<label>Class</label>
@@ -70,8 +73,8 @@
 			<%} %>
 		</select><br><br>
 		<input type="submit" value="Submit">
-
-
+		
+		
 	</form>
 	<script type="text/javascript">
 		$(document).ready(function() {

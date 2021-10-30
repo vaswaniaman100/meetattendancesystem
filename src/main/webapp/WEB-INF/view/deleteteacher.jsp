@@ -34,6 +34,7 @@
           
             
             <input type="submit" value="delete">
+            </div>
         </form>
         
         <!-- Teachers list start -->

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.MvcNamespaceHandler;
 
+import com.attendance.credentials.AdminCredentials;
 import com.attendance.model.Classname;
 import com.attendance.model.LectureAttendance;
 import com.attendance.model.Lectures;
@@ -34,6 +35,10 @@ public class TeacherController {
 	AdminService adminService;
 
 	HttpSession session;
+	
+	AdminCredentials admincred = new AdminCredentials();
+	private String u = admincred.getUsername();
+	private String p = admincred.getPassword();
 	
 	@Autowired
 	LectureAttendanceResource attendanceResource;
@@ -60,6 +65,9 @@ public class TeacherController {
 		Teachers teacher = teacherService.validateTeacher(username, password);
 
 		if (username == null && password == null) {
+			request.getSession().removeAttribute("username");
+			request.getSession().removeAttribute("password");
+			System.out.println("hello");
 			return new ModelAndView("redirect:/");
 		} else if (teacher != null && username.equals(teacher.getName()) && password.equals(teacher.getPassword())) {
 			
@@ -67,11 +75,15 @@ public class TeacherController {
 			mv.addObject("lectureslist",teacherService.getLectures(username));
 			mv.addObject("teachername",username);
 			mv.setViewName("view/teacherhome.jsp");
+			return mv;
 
-		} else {
-
+		}else if (!username.equals(u) && !password.equals(p)) {
+			request.getSession().removeAttribute("username");
+			request.getSession().removeAttribute("password");
+System.out.println("hello");
 			return new ModelAndView("redirect:/");
-		}
+
+		} 
 
 		return mv;
 	}

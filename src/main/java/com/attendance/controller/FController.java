@@ -63,11 +63,13 @@ public class FController {
 		} else {
 
 			mv.setViewName("index.jsp");
+			
 		}
 		
 		if (!username.equals(u) && !password.equals(p)) {
 
 			mv.setViewName("index.jsp");
+			return mv;
 		}
 
 		mv.setViewName("index.jsp");

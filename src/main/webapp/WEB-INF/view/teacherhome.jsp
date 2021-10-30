@@ -1,3 +1,4 @@
+<%@page import="java.util.Collections"%>
 <%@page import="com.attendance.model.Lectures"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -46,7 +47,7 @@ Teacher Name :-   &nbsp;&nbsp;&nbsp;&nbsp;	  <%=request.getAttribute("teachernam
    </marquee>
 <%
 List<Lectures> listlectures = (List<Lectures>) request.getAttribute("lectureslist");
-
+Collections.reverse(listlectures);
 %>
 <h1 style align="center">Lectures</h1>
 <script

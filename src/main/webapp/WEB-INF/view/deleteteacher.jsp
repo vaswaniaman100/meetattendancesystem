@@ -25,7 +25,7 @@
     </script>
 
     <body>
-      <jsp:include page="/teacherheader"></jsp:include>
+      <jsp:include page="/header"></jsp:include>
     <br>
         <form action="/deleteteacher" method="post">
         <div align="center" style="margin-top:20px;">

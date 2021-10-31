@@ -36,7 +36,8 @@ public class FController {
 	private String p = admincred.getPassword();
 	
 	@RequestMapping("/")
-	public ModelAndView index() {
+	public ModelAndView index(HttpServletRequest request) {
+		session=request.getSession();
 		ModelAndView mv = new ModelAndView();
 		String username =null ,password =null;
 		try {

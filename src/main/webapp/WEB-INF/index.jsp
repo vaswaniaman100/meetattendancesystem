@@ -60,10 +60,10 @@
 </div>
 <br>
 <nav class="navbar navbar-expand-sm" style="background-color :#581845  ">
-    <a class="navbar-brand text-white pl-5 font-weight-bold" style="font-family :'Monotype Corsiva'">Meet Attendance System</a>
+    <a href = "/"class="navbar-brand text-white pl-5 font-weight-bold" style="font-family :'Monotype Corsiva'">Meet Attendance System</a>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="home.jsp" style="margin-left:280px"><i class="fa fa-home mr-1"></i>Home</a>
+            <a class="nav-link" href="/" style="margin-left:280px"><i class="fa fa-home mr-1"></i>Home</a>
         </li>
 
         <li class="nav-item">
@@ -75,12 +75,12 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="https://moderncoe.edu.in/" style="margin-left:50px"><i class="fa fa-sign-language mr-1"></i>About Us</a>
+            <a class="nav-link" href="https://moderncoe.edu.in/about-institute.php" style="margin-left:50px"><i class="fa fa-sign-language mr-1"></i>About Us</a>
         </li>
 
 
         <li class="nav-item">
-            <a class="nav-link" href="https://moderncoe.edu.in/"style="margin-left:50px" ><i class="fa fa-sign-in mr-1"></i>Contact Us</a>
+            <a class="nav-link" href="https://moderncoe.edu.in/contact-us.php"style="margin-left:50px" ><i class="fa fa-sign-in mr-1"></i>Contact Us</a>
         </li>
 
     </ul>

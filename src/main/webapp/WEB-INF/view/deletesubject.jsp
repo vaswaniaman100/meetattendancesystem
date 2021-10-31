@@ -25,7 +25,7 @@
     </script>
 
     <body>
-    <jsp:include page="/teacherheader"></jsp:include>
+    <jsp:include page="/header"></jsp:include>
     <br>
      <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
         <form action="/deletesubject" method="post">
